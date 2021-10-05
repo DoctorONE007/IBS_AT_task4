@@ -12,7 +12,6 @@ import ru.appline.framework.managers.InitManager;
 import java.io.ByteArrayInputStream;
 
 
-
 public class Hooks {
 
     @Before
@@ -22,9 +21,7 @@ public class Hooks {
 
 
     @After
-    public void after(Scenario scenario) {
-            byte[] byteImage = ((TakesScreenshot) DriverManager.getDriverManager().getDriver()).getScreenshotAs(OutputType.BYTES);
-            Allure.addAttachment("Screenshot","image/png",new ByteArrayInputStream(byteImage),null);
-
-        InitManager.quitFramework(); }
+    public void after() {
+        InitManager.quitFramework();
+    }
 }
